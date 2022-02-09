@@ -1,21 +1,11 @@
 package com.netflixmoviematch.service;
 
-import com.netflixmoviematch.model.MovieDto;
-import com.netflixmoviematch.webclient.search.MovieSearchClient;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
+import com.netflixmoviematch.model.movie.MovieDto;
 
-@Service
-@Slf4j
-@RequiredArgsConstructor
-public class MovieSearchService {
+import java.util.List;
+import java.util.Map;
 
-    private final MovieSearchClient movieSearchClient;
+public interface MovieSearchService {
 
-    public MovieDto getMoviesByRating(int rating) {
-        MovieDto response = movieSearchClient.getMoviesByRating(rating);
-        log.info(response.toString());
-        return response;
-    }
+    List<MovieDto> getMovies(Map<String, String[]> searchParams);
 }

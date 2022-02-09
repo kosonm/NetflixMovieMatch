@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Search result: </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h1>
+            <a th:href="@{/}">Netflix movie match</a>
+        </h1>
+    </div>
+    <table class="table table-dark table-bordered">
+        <thead class="">
+        <tr>
+            <th> Movie title</th>
+            <th> Movie IMDB rating</th>
+            <th> Movie year</th>
+            <th> Movie synopsis</th>
+            <th> I like this!</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="movie: ${movies}">
+            <td th:text="${movie.title}"></td>
+            <td th:text="${movie.imdbRating}"></td>
+            <td th:text="${movie.year}"></td>
+            <td th:text="${movie.synopsis}"></td>
+            <td><img th:src="${movie.img}" alt="moviePosterImage"></td>
+            <td>
+                <a th:href="@{/movies/addLike/{name}(name=${movie.title})}" class="btn btn-primary">
+                    LIKE
+                </a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+</body>
+</html>

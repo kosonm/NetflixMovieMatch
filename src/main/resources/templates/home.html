@@ -1,0 +1,62 @@
+<html xmlns:th="https://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Netflix Movie Match</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h1> Input movie rating below: </h1>
+    </div>
+    <form th:action="@{/movies/}" th:objet="${searchParams}">
+        <div class="form-group">
+            <label>From Rating:</label>
+            <input type="text"
+                   th:name="startRating"
+                   placeholder="Enter start movie rating"
+            >
+        </div>
+        <div class="form-group">
+            <label>To Rating:</label>
+            <input type="text"
+                   th:name="endRating"
+                   placeholder="Enter end movie rating"
+            >
+        </div>
+        <div class="form-group">
+            <label>From year:</label>
+            <input type="text"
+                   th:name="startYear"
+                   placeholder="Enter start year"
+            >
+        </div>
+        <div class="form-group">
+            <label>To Year:</label>
+            <input type="text"
+                   th:name="endYear"
+                   placeholder="Enter end year"
+            >
+        </div>
+        <div class="form-group">
+            <label>Type:</label>
+            <input type="text"
+                   th:name="type"
+                   placeholder="Enter type(movie/series)"
+            >
+        </div>
+        <div class="box-footer">
+            <button type="submit" class="btn btn-primary">
+                Submit
+            </button>
+        </div>
+    </form>
+
+</div>
+<!--<div>-->
+<!--    <h1><a th:href="/@{/login}"></a>LOGIN</h1>-->
+<!--    <h1><a th:href="/@{/register}"></a>REGISTER</h1>-->
+<!--</div>-->
+</body>
+</html>

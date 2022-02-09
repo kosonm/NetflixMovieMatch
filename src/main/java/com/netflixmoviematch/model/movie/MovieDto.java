@@ -1,6 +1,5 @@
-package com.netflixmoviematch.model;
+package com.netflixmoviematch.model.movie;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -12,5 +11,6 @@ public class MovieDto {
     private String synopsis;
     private String year;
     private String imdbRating;
+    private String img;
 
 }
